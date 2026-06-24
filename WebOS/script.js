@@ -152,7 +152,8 @@ function calc(value){
         displayVal='0';
     }else if (value==='='){
         try{
-            displayVal=eval(displayVal).toString();
+            let mathstring = displayVal.replace(/×/g, '*').replace(/÷/g, '/');
+            displayVal=eval(mathstring).toString();
         }catch{
             displayVal='ERROR'
         }
