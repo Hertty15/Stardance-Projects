@@ -142,38 +142,28 @@ function updatecalcdisplay() {
     }
 }
 //spelling is vry IMP
-
+//redoing this cuz it didnt work
 function calcinput(value) {
     if (value >= '0' && value <= '9') {
-        if (calcdisplay === '0') {
-            calcdisplay = value;
-        }else{
-            calcdisplay+= value;
-        }
+        calcdisplay=(calcdisplay==='0')?value:calcdisplay+value;
         //a;wasy check what uve typed
         //ive been stuck on  a bracket problem for so long
     }else if (value === '.') {
-        if(!calcdisplay.includes('.')) {
-            calcdisplay += '.';
-        }
+        if(!calcdisplay.includes('.')) calcdisplay += '.';
     }else if(value ==='C'){
         //dont forget quotation marks
-        calcdisplay = '0';
-        calcprev= '';
-        calcbutton=null
+        calcdisplay = '0'; calcprev= ''; calcbutton=null
     }else if (value==='='){
         if (calcbutton && calcprev){
             const prev =parseFloat(calcprev);
             const current=parseFloat(calcdisplay);
             //dont forget weird colon comma thing
-            let result;
+            let result=0;
+            if(calcbutton==='+')result=prev+current
+            if(calcbutton==='-')result=prev-current
+            if(calcbutton==='×')result=prev*current
+            if(calcbutton==='÷')result=prev/current
 
-            switch(calcbutton){
-                case '+':result=prev+current;break;
-                case '-':result=prev-current;break;
-                case '×':result=prev*current;break;
-                case '÷':result=prev/current;break;
-            }
             calcdisplay=result.toString();
             calcprev='';
             calcbutton=null
@@ -185,6 +175,11 @@ function calcinput(value) {
     }
     updatecalcdisplay();
 }
+
+//page loads
+window.addEventListener('load',()=>{
+    const grid=document.querySelector('#calculator .windowcontent > div:nth-child(2)');
+})
 //im stuck on brackets, i hate when bracketsr the problem
 const calcwindow=document.getElementById('calc')
 if (calcwindow){
@@ -199,3 +194,4 @@ if (calcwindow){
     });
     //capitalisation matters
 }
+// stupid calc still not working
