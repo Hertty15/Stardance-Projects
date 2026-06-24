@@ -194,3 +194,20 @@ body {
     background: rgba(255, 255, 255, 0.25);
     margin: 0 4px;
 }
+
+/*calc buttons not clicking so adding this*/
+#calc .windowcontent div {
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.1s;
+}
+/*changes on hovering over buttons*/
+#calc .windowcontent div:hover{
+    transform: scale(0.95);
+    opacity: 0.8;
+}
+
+/*how it changes when being clicked*/
+#calc .windowcontent div:active{
+    transform: scale(0.9);
+}
