@@ -172,3 +172,9 @@ function calc(value){
     }
     display.textContent=displayVal
 }
+
+//setting stuff
+function changebg(color){
+    document.body.style.background=color;
+    console.log('Background changed to:', color);
+}

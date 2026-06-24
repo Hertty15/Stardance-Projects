@@ -98,28 +98,24 @@
     </div>
 </div>
 
-
+<!--making it so that the settings works-->
 <div class="window" id="settings" style="display: none; top: 120px; left: 300px; width: 400px;">
     <div class="windowheader" id="settingsheader">
         <p class="headertext">Settings</p>
         <div class="closebutton" id="settingsclose"></div>
     </div>
     <div class="windowcontent">
-        <h3>🎨 Appearance</h3>
-        <div style="margin: 15px 0;">
-            <label style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 8px; margin-bottom: 8px;">
-                <span>Dark Mode</span>
-                <div style="width: 40px; height: 20px; background: #4CAF50; border-radius: 10px; position: relative;"><div style="width: 16px; height: 16px; background: white; border-radius: 50%; position: absolute; right: 2px; top: 2px;"></div></div>
-            </label>
-            <label style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 8px;">
-                <span>Transparency</span>
-                <div style="width: 40px; height: 20px; background: rgba(255,255,255,0.3); border-radius: 10px; position: relative;"><div style="width: 16px; height: 16px; background: white; border-radius: 50%; position: absolute; left: 2px; top: 2px;"></div></div>
-            </label>
-        </div>
+        <h3>🎨 Desktop Background</h3>
+        <p style="font-size: 13px; opacity: 0.8px; margin-bottom: 15px;">Click a color to change desktop</p>
         
-        <h3>👤 Account</h3>
+        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+            <div class="color-swatch" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);" onclick="changebg('linear-gradient(135deg, #667eea 0%, #764ba2 100%)')"></div>
+            <div class="color-swatch" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);" onclick="changebg('linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%)')"></div>
+            <div class="color-swatch" style="background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);" onclick="changebg('linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)')"></div>
+            <div class="color-swatch" style="background: #1a1a1a;" onclick="changebg('#1a1a1a')"></div>
+        </div>
+        <h3 style="margin-top: 25px;">👤 Account</h3>
         <p style="font-size: 13px; opacity: 0.8;">Signed in as: <strong>Student</strong></p>
-        <p style="font-size: 12px; opacity: 0.6; margin-top: 5px;">Stardance Challenge 2026</p>
     </div>
 </div>
 
