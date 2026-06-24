@@ -224,3 +224,40 @@ body {
 #calculator button:hover{
     background: rgba(255, 255, 255, 0.2);
 }
+
+/*window size was being weird so adding this*/
+#calculator .windowcontent{
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#calculator #calc-display{
+    height: 70px;
+    flex-shrink: 0; /*display shud not shrink now*/
+}
+
+#calculator .windowcontent>div:last-child{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    flex-grow: 1;
+}
+
+#calculator button{
+    width: 100%;
+    height: 65px;
+    font-size: 20px;
+    padding: 0;
+}
+
+#calculator{ /*there shud be no scrolly thingy now*/
+    max-height: none;
+    overflow: visible;
+}
+
+#calculator .windowcontent{
+    max-height: none;
+    overflow: visible;
+}
