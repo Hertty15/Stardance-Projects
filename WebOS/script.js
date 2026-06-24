@@ -146,7 +146,7 @@ function updatecalcdisplay() {
 let displayVal='0'
 
 function calc(value){
-    const display=document.getElementById('calcdisplay');
+    const display=document.getElementById('calc-display');
     
     if (value==='C'){
         displayVal='0';
