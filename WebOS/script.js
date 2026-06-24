@@ -179,6 +179,14 @@ function calcinput(value) {
 //page loads
 window.addEventListener('load',()=>{
     const grid=document.querySelector('#calculator .windowcontent > div:nth-child(2)');
+    if (grid){
+        const buttons = grid.querySelectorAll('div');
+        buttons.forEach(btn=>{
+            btn.addEventListener('click', ()=>{
+                calcinput(btn.textContent);
+            })
+        })
+    }
 })
 //im stuck on brackets, i hate when bracketsr the problem
 const calcwindow=document.getElementById('calc')
