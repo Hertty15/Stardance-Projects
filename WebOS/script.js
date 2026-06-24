@@ -142,64 +142,32 @@ function updatecalcdisplay() {
     }
 }
 //spelling is vry IMP
-//redoing this cuz it didnt work
-function calcinput(value) {
-    if (value >= '0' && value <= '9') {
-        calcdisplay=(calcdisplay==='0')?value:calcdisplay+value;
-        //a;wasy check what uve typed
-        //ive been stuck on  a bracket problem for so long
-    }else if (value === '.') {
-        if(!calcdisplay.includes('.')) calcdisplay += '.';
-    }else if(value ==='C'){
-        //dont forget quotation marks
-        calcdisplay = '0'; calcprev= ''; calcbutton=null
-    }else if (value==='='){
-        if (calcbutton && calcprev){
-            const prev =parseFloat(calcprev);
-            const current=parseFloat(calcdisplay);
-            //dont forget weird colon comma thing
-            let result=0;
-            if(calcbutton==='+')result=prev+current
-            if(calcbutton==='-')result=prev-current
-            if(calcbutton==='×')result=prev*current
-            if(calcbutton==='÷')result=prev/current
+//redoing this cuz it didnt work pt2
+let displayVal='0'
 
-            calcdisplay=result.toString();
-            calcprev='';
-            calcbutton=null
+function calc(value){
+    const display=document.getElementById('calcdisplay');
+    
+    if (value==='C'){
+        displayVal='0';
+    }else if (value==='='){
+        try{
+            displayVal=eval(displayVal).toString();
+        }catch{
+            displayVal='ERROR'
         }
     }else if (['+', '-', '×', '÷'].includes(value)){
-        calcprev=calcdisplay;
-        calcbutton=value
-        calcdisplay='0'
-    }
-    updatecalcdisplay();
-}
-
-//page loads
-window.addEventListener('load',()=>{
-    const grid=document.querySelector('#calculator .windowcontent > div:nth-child(2)');
-    if (grid){
-        const buttons = grid.querySelectorAll('div');
-        buttons.forEach(btn=>{
-            btn.addEventListener('click', ()=>{
-                calcinput(btn.textContent);
-            })
-        })
-    }
-})
-//im stuck on brackets, i hate when bracketsr the problem
-const calcwindow=document.getElementById('calc')
-if (calcwindow){
-    calcwindow.addEventListener('click', function (e) {
-        if (e.target.tagName==='DIV' && e.target.parentElement.classList.contains('windowcontent')){
-            const buttontext=e.target.textContent;
-            if(buttontext){
-                calcinput(buttontext);
-            }
+        displayVal+=''+value+'';
+    } else if (value === '±') {
+        displayVal=(parseFloat(displayVal)*-1).toString();
+    }else if (value==='%'){
+        displayVal=(parseFloat(displayVal)/100).toString();
+    }else{
+        if(displayVal==='0'){
+            displayVal=value;
+        }else{
+            displayVal+=value;
         }
-        
-    });
-    //capitalisation matters
+    }
+    display.textContent=displayVal
 }
-// stupid calc still not working

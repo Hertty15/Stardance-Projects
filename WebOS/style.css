@@ -211,3 +211,16 @@ body {
 #calc .windowcontent div:active{
     transform: scale(0.9);
 }
+
+/*new button stuff the previous ones werent working*/
+#calculator button{
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-family: inherit;
+}
+
+#calculator button:hover{
+    background: rgba(255, 255, 255, 0.2);
+}
