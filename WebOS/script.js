@@ -178,3 +178,82 @@ function changebg(color){
     document.body.style.background=color;
     console.log('Background changed to:', color);
 }
+
+//making it so in terminal when u click enter it sends or whatever
+// ===== TERMINAL CODE - FRESH START =====
+
+// Wait for everything to load
+setTimeout(function() {
+    // Find the elements
+    var inputField = document.getElementById('terminal-input');
+    var outputArea = document.getElementById('terminal-output');
+    
+    console.log('Terminal setup - Input:', inputField, 'Output:', outputArea);
+    
+    if (!inputField || !outputArea) {
+        console.error('ERROR: Terminal elements not found!');
+        return;
+    }
+    
+    // Listen for key presses
+    inputField.addEventListener('keydown', handleKeyPress);
+    
+    // Focus input when clicking terminal
+    document.getElementById('terminal').addEventListener('click', function() {
+        inputField.focus();
+    });
+    
+    function handleKeyPress(event) {
+        //was enter pressed?
+        if (event.key === 'Enter' || event.which === 13 || event.keyCode === 13) {
+            event.preventDefault(); // Stop default behavior
+            
+            var command = inputField.value.trim();
+            console.log('Command entered:', command);
+            
+            //showing command
+            outputArea.innerHTML = outputArea.innerHTML + '<p style="color: #00ff00;">user@webos:~$ ' + command + '</p>';
+            
+            //understanding the command
+            var lowerCommand = command.toLowerCase();
+            
+            if (lowerCommand === 'help') {
+                outputArea.innerHTML = outputArea.innerHTML + '<p style="color: yellow;">Available commands: help, date, clear, who am i, hello, ls, pwd</p>';
+            }
+            else if (lowerCommand === 'date') {
+                outputArea.innerHTML = outputArea.innerHTML + '<p>' + new Date().toString() + '</p>';
+            }
+            else if (lowerCommand === 'clear') {
+                outputArea.innerHTML = '';
+            }
+            else if (lowerCommand === 'who am i') {
+                outputArea.innerHTML = outputArea.innerHTML + '<p style="color: cyan;">user</p>';
+            }
+            else if (lowerCommand === 'hello' || lowerCommand === 'hi') {
+                outputArea.innerHTML = outputArea.innerHTML + '<p style="color: magenta;">Hello there!</p>';
+            }
+            else if (lowerCommand === 'ls') {
+                outputArea.innerHTML = outputArea.innerHTML + '<p>Documents  Downloads  Pictures  index.html  style.css</p>';
+            }
+            else if (lowerCommand === 'pwd') {
+                outputArea.innerHTML = outputArea.innerHTML + '<p>/home/student</p>';
+            }
+            else if (lowerCommand !== '') {
+                outputArea.innerHTML = outputArea.innerHTML + '<p style="color: red;">Command not found: ' + lowerCommand + '</p>';
+            }
+            
+            // Clear the input field
+            inputField.value = '';
+            
+            // Auto-scroll to bottom
+            var contentDiv = document.querySelector('#terminal .windowcontent');
+            if (contentDiv) {
+                contentDiv.scrollTop = contentDiv.scrollHeight;
+            }
+        }
+    }
+    
+    console.log('Terminal is ready!');
+}, 1000); // Wait 1 second for everything to load
+
+// ===== END TERMINAL CODE =====

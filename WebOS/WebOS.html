@@ -112,31 +112,32 @@
             <div class="color-swatch" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);" onclick="changebg('linear-gradient(135deg, #667eea 0%, #764ba2 100%)')"></div>
             <div class="color-swatch" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);" onclick="changebg('linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%)')"></div>
             <div class="color-swatch" style="background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);" onclick="changebg('linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)')"></div>
-            <div class="color-swatch" style="background: #1a1a1a;" onclick="changebg('#1a1a1a')"></div>
+            <div class="color-swatch" style="background: linear-gradient(135deg, #000000 0%, #9f9f9f 100%);" onclick="changebg('linear-gradient(135deg, #000000 0%, #9f9f9f 100%)')"></div>
         </div>
         <h3 style="margin-top: 25px;">👤 Account</h3>
         <p style="font-size: 13px; opacity: 0.8;">Signed in as: <strong>Student</strong></p>
     </div>
 </div>
 
-
+<!--setting up the working termianl-->
+<!-- TERMINAL WINDOW -->
 <div class="window" id="terminal" style="display: none; top: 180px; left: 250px; width: 500px; background: rgba(10, 10, 10, 0.95);">
     <div class="windowheader" id="terminalheader" style="background: rgba(255,255,255,0.05);">
         <p class="headertext">Terminal</p>
         <div class="closebutton" id="terminalclose"></div>
     </div>
-    <div class="windowcontent" style="font-family: 'Courier New', monospace; font-size: 13px; color: #00ff00;">
-        <div style="margin-bottom: 10px;">
+    <div class="windowcontent" id="terminal-content" style="font-family: 'Courier New', monospace; color: #00ff00; font-size: 14px; padding: 15px; max-height: 400px; overflow-y: auto;">
+        <div id="terminal-output">
             <p style="color: #00ff00;">Welcome to WebOS Terminal v1.0</p>
             <p style="color: #888;">Type 'help' for available commands</p>
+            <br>
         </div>
-        <div style="margin-top: 20px;">
-            <span style="color: #00ff00;">user@webos:~$</span>
-            <span style="margin-left: 8px; animation: blink 1s infinite;">_</span>
+        <div style="display: flex; align-items: center; margin-top: 10px;">
+            <span style="color: #00ff00; margin-right: 8px; white-space: nowrap;">user@webos:~$</span>
+            <input type="text" id="terminal-input" style="background: transparent; border: none; color: #00ff00; font-family: 'Courier New', monospace; font-size: 14px; flex-grow: 1; outline: none;" autofocus>
         </div>
     </div>
 </div>
-
     <script src="script.js"></script>
 </body>
 </html>
